@@ -1,10 +1,10 @@
 const CACHE_NAME = 'offline-cache-v1';
 const urlsToCache = [
-    '/offline-web-app/',
-    '/offline-web-app/index.html',
-    '/offline-web-app/styles.css',
-    '/offline-web-app/script.js',
-    '/offline-web-app/service-worker.js'
+    '/web-app-with-service-worker/',
+    '/web-app-with-service-worker/index.html',
+    '/web-app-with-service-worker/styles.css',
+    '/web-app-with-service-worker/script.js',
+    '/web-app-with-service-worker/service-worker.js'
 ];
 
 self.addEventListener('install', event => {
@@ -45,7 +45,7 @@ self.addEventListener('fetch', event => {
                 );
             }).catch(error => {
                 console.error('Fetch failed; returning offline page instead.', error);
-                return caches.match('/offline-web-app/index.html');
+                return caches.match('/web-app-with-service-worker/index.html');
             })
     );
 });
